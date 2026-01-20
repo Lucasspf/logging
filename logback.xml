@@ -1,16 +1,52 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <Pattern>
-                %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
-            </Pattern>
+            <pattern>
+                [1] %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+            </pattern>
         </encoder>
     </appender>
 
-    <logger name="logging" level="off" additivity="false">
+    <appender name="CONSOLE2" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                [2] %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <logger name="logging" level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
     </logger>
+
+    <logger name="x" level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </logger>
+
+    <logger name="x.y">
+        <appender-ref ref="CONSOLE2"/>
+    </logger>
+
+    <root level="WARN">
+        <appender-ref ref="CONSOLE"/>
+    </root>
+
+    <logger name="app4">
+
+    </logger>
+
+    <logger name="app5" level="INFO">
+
+    </logger>
+    <logger name="app6" level="INFO">
+
+    </logger>
+    <logger name="app7" level="INFO">
+
+    </logger>
+
+
 
 </configuration>
